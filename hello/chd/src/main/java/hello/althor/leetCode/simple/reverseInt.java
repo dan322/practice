@@ -1,8 +1,6 @@
-package hello.althor.divide;
+package hello.althor.leetCode.simple;
 
-import java.lang.NumberFormatException;
-
-public class Application {
+public class reverseInt {
 
     public static void main(String[] args)
     {
@@ -15,17 +13,19 @@ public class Application {
         int result = largeIntegeMulti.doMulti(a, b);
         System.out.println(result);*/
         Long start = System.currentTimeMillis();
-        int x = 2122567834;
-//        System.out.println(doReverse(x));
-        System.out.println(reverse(x));
+        int x = -2147483648;
+        System.out.println(doReverse(x));
+//        System.out.println(reverse(x));
         Long end = System.currentTimeMillis();
         System.out.println(end - start);
     }
 
     public static int doReverse(int x) {
-        if (x == 0 || x < 10)
+        if (x >= Integer.MAX_VALUE || x <= Integer.MIN_VALUE) return 0;
+        int usingedX = Math.abs(x);
+        if ( usingedX < 10)
             return x;
-        String str = String.valueOf(x);
+        String str = String.valueOf(usingedX);
         int length = str.length();
         int maxIndex = length -1;
         int middle = length >> 1;
@@ -54,8 +54,9 @@ public class Application {
         for (int j = 0; j < length; j++) {
             newStr += newInt[j];
         }
+        int base = x < 0 ? -1: 1;
         try {
-            return Integer.parseInt(newStr);
+            return Integer.parseInt(newStr) * base;
         } catch (NumberFormatException e) {
             return 0;
         }
