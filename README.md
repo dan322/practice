@@ -1,2 +1,0 @@
-# practice
-self practice
