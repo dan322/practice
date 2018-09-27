@@ -6,8 +6,8 @@ public class SearchInsert {
     {
         Long start = System.currentTimeMillis();
         SearchInsert searchInsert = new SearchInsert();
-        int[] nums = new int[]{};
         int target = 2;
+        int[] nums = new int[]{1,3,5,6};
         int index = searchInsert.doSearchInsert(nums, target);
         System.out.println(index);
         System.out.println(System.currentTimeMillis() - start);
@@ -16,14 +16,15 @@ public class SearchInsert {
     public int doSearchInsert(int[] nums, int target)
     {
         int length = nums.length;
+        if (length == 0 ) return 0;
         int compareIndex = length >> 1;
-        while (compareIndex > 0) {
+        while (true) {
             if (nums[compareIndex] > target) {
                 compareIndex = compareIndex >> 1;
             } else if (nums[compareIndex] == target) {
                 break;
             } else {
-                compareIndex = ( length - compareIndex) >> 1 + compareIndex;
+                compareIndex =  length + compareIndex >> 1;
             }
         }
         return 0;
