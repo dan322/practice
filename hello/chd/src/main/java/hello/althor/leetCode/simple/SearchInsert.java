@@ -15,7 +15,17 @@ public class SearchInsert {
 
     public int doSearchInsert(int[] nums, int target)
     {
-
+        int length = nums.length;
+        int compareIndex = length >> 1;
+        while (compareIndex > 0) {
+            if (nums[compareIndex] > target) {
+                compareIndex = compareIndex >> 1;
+            } else if (nums[compareIndex] == target) {
+                break;
+            } else {
+                compareIndex = ( length - compareIndex) >> 1 + compareIndex;
+            }
+        }
         return 0;
     }
 }
