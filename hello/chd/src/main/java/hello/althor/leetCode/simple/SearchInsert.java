@@ -6,27 +6,34 @@ public class SearchInsert {
     {
         Long start = System.currentTimeMillis();
         SearchInsert searchInsert = new SearchInsert();
-        int target = 2;
-        int[] nums = new int[]{1,3,5,6};
+        int target = 6;
+        int[] nums = new int[]{1,3,5,6, 8};
         int index = searchInsert.doSearchInsert(nums, target);
-        System.out.println(index);
         System.out.println(System.currentTimeMillis() - start);
+        System.out.println(index);
     }
 
     public int doSearchInsert(int[] nums, int target)
     {
         int length = nums.length;
-        if (length == 0 ) return 0;
+        if (length == 0 || target < nums[0] || target > nums[length-1]) return -1;
         int compareIndex = length >> 1;
-        while (true) {
+        int rightNode = length;
+        int leftNode = 0;
+        int compareEnd;
+        while (target != nums[compareIndex]) {
             if (nums[compareIndex] > target) {
-                compareIndex = compareIndex >> 1;
-            } else if (nums[compareIndex] == target) {
-                break;
+                compareEnd = rightNode;
+                rightNode = compareIndex;
+                compareIndex = (rightNode - leftNode) >> 1;
             } else {
-                compareIndex =  length + compareIndex >> 1;
+                compareEnd = leftNode;
+                leftNode = compareIndex;
+                compareIndex = (rightNode + leftNode) >> 1;
             }
+            if (compareIndex == compareEnd)
+                return -1;
         }
-        return 0;
+        return compareIndex;
     }
 }
