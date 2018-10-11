@@ -73,10 +73,26 @@ public class SimpleLinked {
     }
 
     // todo linked examine circle
+
+    /**
+     *    ********    *******
+     * @return
+     */
     public boolean isCircle()
     {
-
-        return false;
+        if (head.next == null)
+            return false;
+        Node node1 = head.next;
+        Node node2 = node1;
+        if (node2.next == null)
+            return false;
+        while (node1.next != node2.next.next) {
+            node1 = node1.next;
+            node2 = node2.next.next;
+            if (node2 == null)
+                return false;
+        }
+        return true;
     }
 
     /**
@@ -109,4 +125,6 @@ public class SimpleLinked {
         }
         return searchNode;
     }
+
+
 }
