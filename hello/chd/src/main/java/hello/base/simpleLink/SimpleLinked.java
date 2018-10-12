@@ -53,7 +53,16 @@ public class SimpleLinked {
 
     public void deleteTailN(int n)
     {
-
+        Node p1 = head.next, p2 = head.next;
+        while (p2.next != null) {
+            if (n <= 0) {
+                p1 = p1.next;
+            } else {
+                n--;
+            }
+            p2 = p2.next;
+        }
+        p1.next = null;
     }
 
     public void reverseLink ()
@@ -124,6 +133,30 @@ public class SimpleLinked {
                 return null;
         }
         return searchNode;
+    }
+
+    /**
+     *  two sorted list merge
+     * @param l1
+     * @param l2
+     * @return
+     */
+    public Node mergeTwoLists(Node l1, Node l2) {
+        Node head = null;
+        Node joinNode;
+        while (true) {
+            if (l1.data <= l2.data) {
+                joinNode = l1;
+                l1 = l1.next;
+            } else {
+//                joinNode.next = l2;
+//                joinNode = l2;
+                l2 = l2.next;
+            }
+            if (head == null) head = joinNode;
+            if (l2 == null) break;
+        }
+        return l1;
     }
 
 
