@@ -1,59 +1,57 @@
 package hello.base.simpleLink;
 
-import hello.base.simpleLink.Node;
-
 public class SimpleLinked {
     // TODO
-    private Node head = null;
+    private ListNode head = null;
 
-    public void deleteNode(Node node)
+    public void deleteNode(ListNode listNode)
     {
         if (head.next == null) return;
-        Node searchNode = head.next;
-        Node preNode = null;
-        while (searchNode.next != node.next)
+        ListNode searchListNode = head.next;
+        ListNode preListNode = null;
+        while (searchListNode.next != listNode.next)
         {
-            preNode = searchNode;
-            if (searchNode.next == null)
+            preListNode = searchListNode;
+            if (searchListNode.next == null)
                 return;
-            searchNode = searchNode.next;
+            searchListNode = searchListNode.next;
         }
-        if (preNode == null) {
+        if (preListNode == null) {
             head.next = null;
             return;
         }
-        preNode.next = searchNode.next;
+        preListNode.next = searchListNode.next;
     }
 
-    public void insertNode(Node node, int value)
+    public void insertNode(ListNode listNode, int value)
     {
-        Node newNode = new Node(value);
+        ListNode newListNode = new ListNode(value);
         if (head.next == null) {
-            head.next = newNode;
+            head.next = newListNode;
             return;
         }
-        Node searchNode = head.next;
-        while (searchNode.next == node.next) {
-            node.next = searchNode.next;
-            searchNode.next = node;
+        ListNode searchListNode = head.next;
+        while (searchListNode.next == listNode.next) {
+            listNode.next = searchListNode.next;
+            searchListNode.next = listNode;
             break;
         }
     }
 
-    public void deleteNodeAfter(Node node)
+    public void deleteNodeAfter(ListNode listNode)
     {
         if (head.next == null ) return;
-        Node searchNode = head.next;
-        while ( searchNode.next == node.next)
+        ListNode searchListNode = head.next;
+        while ( searchListNode.next == listNode.next)
         {
-            node.next = null;
+            listNode.next = null;
             break;
         }
     }
 
     public void deleteTailN(int n)
     {
-        Node p1 = head.next, p2 = head.next;
+        ListNode p1 = head.next, p2 = head.next;
         while (p2.next != null) {
             if (n <= 0) {
                 p1 = p1.next;
@@ -68,16 +66,16 @@ public class SimpleLinked {
     public void reverseLink ()
     {
         if (head.next == null) return;
-        Node nextNode = head.next;
-        Node secondNode = nextNode.next;
-        while (secondNode != null)
+        ListNode nextListNode = head.next;
+        ListNode secondListNode = nextListNode.next;
+        while (secondListNode != null)
         {
-            nextNode.next = secondNode.next;
-            head.next = secondNode;
-            secondNode.next = nextNode;
-            if (nextNode.next == null)
+            nextListNode.next = secondListNode.next;
+            head.next = secondListNode;
+            secondListNode.next = nextListNode;
+            if (nextListNode.next == null)
                 return;
-            secondNode = nextNode.next;
+            secondListNode = nextListNode.next;
         }
     }
 
@@ -91,14 +89,14 @@ public class SimpleLinked {
     {
         if (head.next == null)
             return false;
-        Node node1 = head.next;
-        Node node2 = node1;
-        if (node2.next == null)
+        ListNode listNode1 = head.next;
+        ListNode listNode2 = listNode1;
+        if (listNode2.next == null)
             return false;
-        while (node1.next != node2.next.next) {
-            node1 = node1.next;
-            node2 = node2.next.next;
-            if (node2 == null)
+        while (listNode1.next != listNode2.next.next) {
+            listNode1 = listNode1.next;
+            listNode2 = listNode2.next.next;
+            if (listNode2 == null)
                 return false;
         }
         return true;
@@ -111,28 +109,28 @@ public class SimpleLinked {
      */
     public SimpleLinked mergeLinked(SimpleLinked l1)
     {
-        Node searchNode = head.next;
-        if (searchNode == null) {
+        ListNode searchListNode = head.next;
+        if (searchListNode == null) {
             return l1;
         }
-        while (searchNode.next != null) {
-            searchNode = searchNode.next;
+        while (searchListNode.next != null) {
+            searchListNode = searchListNode.next;
         }
-        searchNode.next = l1.head.next;
-        l1.head.next = searchNode;
+        searchListNode.next = l1.head.next;
+        l1.head.next = searchListNode;
         return l1;
     }
 
-    public Node findNode(int data)
+    public ListNode findNode(int data)
     {
         if (head.next == null) return null;
-        Node searchNode = head.next;
-        while (searchNode.data != data) {
-            searchNode = searchNode.next;
-            if (searchNode == null )
+        ListNode searchListNode = head.next;
+        while (searchListNode.val != data) {
+            searchListNode = searchListNode.next;
+            if (searchListNode == null )
                 return null;
         }
-        return searchNode;
+        return searchListNode;
     }
 
     /**
@@ -141,19 +139,19 @@ public class SimpleLinked {
      * @param l2
      * @return
      */
-    public Node mergeTwoLists(Node l1, Node l2) {
-        Node head = null;
-        Node joinNode;
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        ListNode head = null;
+        ListNode joinListNode;
         while (true) {
-            if (l1.data <= l2.data) {
-                joinNode = l1;
+            if (l1.val <= l2.val) {
+                joinListNode = l1;
                 l1 = l1.next;
             } else {
-//                joinNode.next = l2;
-//                joinNode = l2;
+//                joinListNode.next = l2;
+                joinListNode = l2;
                 l2 = l2.next;
             }
-            if (head == null) head = joinNode;
+            if (head == null) head = joinListNode;
             if (l2 == null) break;
         }
         return l1;
