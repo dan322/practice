@@ -15,7 +15,7 @@ public class AddTwoNumbers {
        AddTwoNumbers addTwoNumbers = new AddTwoNumbers();
        addTwoNumbers.initListNode(num1, num2);
        Long start = System.currentTimeMillis();
-       ListNode result = addTwoNumbers.addTwoNumbers(addTwoNumbers.l1, addTwoNumbers.l2);
+       ListNode result = addTwoNumbers.add(addTwoNumbers.l1, addTwoNumbers.l2);
        System.out.println(System.currentTimeMillis() - start);
        while (result.next != null) {
            System.out.println(result.val);
@@ -51,7 +51,7 @@ public class AddTwoNumbers {
        }
    }
 
-    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+    public ListNode add(ListNode l1, ListNode l2) {
         ListNode newHead = new ListNode(0);
         ListNode now = newHead;
         int i = 0, result;
@@ -61,6 +61,7 @@ public class AddTwoNumbers {
                 now.next = new ListNode(result - 10);
                 i = 1;
             } else {
+                i = 0;
                 now.next = new ListNode(result);
             }
             now = now.next;

@@ -1,8 +1,14 @@
 package hello.base.simpleLink;
 
+import jdk.nashorn.internal.runtime.Undefined;
+
 public class SimpleLinked {
     // TODO
-    private ListNode head = null;
+    private ListNode head;
+
+    public ListNode getHead() {
+        return head;
+    }
 
     public void deleteNode(ListNode listNode)
     {
@@ -23,19 +29,21 @@ public class SimpleLinked {
         preListNode.next = searchListNode.next;
     }
 
-    public void insertNode(ListNode listNode, int value)
+    public void insertNode(int value, ListNode listNode)
     {
         ListNode newListNode = new ListNode(value);
-        if (head.next == null) {
-            head.next = newListNode;
+        if (head == null) {
+            head = newListNode;
             return;
         }
-        ListNode searchListNode = head.next;
-        while (searchListNode.next == listNode.next) {
-            listNode.next = searchListNode.next;
-            searchListNode.next = listNode;
-            break;
+        ListNode searchListNode = head;
+        while (searchListNode.next != listNode) {
+            searchListNode = searchListNode.next;
         }
+        if (listNode != null) {
+            newListNode.next = searchListNode.next;
+        }
+        searchListNode.next = newListNode;
     }
 
     public void deleteNodeAfter(ListNode listNode)
@@ -87,18 +95,16 @@ public class SimpleLinked {
      */
     public boolean isCircle()
     {
-        if (head.next == null)
+        ListNode listNode1 = head;
+        if (listNode1 == null)
             return false;
-        ListNode listNode1 = head.next;
-        ListNode listNode2 = listNode1;
-        if (listNode2.next == null)
-            return false;
-        while (listNode1.next != listNode2.next.next) {
+        ListNode listNode2 = listNode1.next;
+        while (listNode2 != null && listNode1 != listNode2.next) {
             listNode1 = listNode1.next;
-            listNode2 = listNode2.next.next;
-            if (listNode2 == null)
-                return false;
+            listNode2 = listNode1.next;
         }
+        if (listNode2 == null)
+            return false;
         return true;
     }
 
