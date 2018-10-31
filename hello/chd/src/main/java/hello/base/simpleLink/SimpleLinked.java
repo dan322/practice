@@ -95,16 +95,17 @@ public class SimpleLinked {
      */
     public boolean isCircle()
     {
-        ListNode listNode1 = head;
-        if (listNode1 == null)
+        if (head.next == null || head.next.next == null)
             return false;
-        ListNode listNode2 = listNode1.next;
-        while (listNode2 != null && listNode1 != listNode2.next) {
+        ListNode listNode1 = head.next;
+        ListNode listNode2 = listNode1.next.next;
+        while (listNode1 != listNode2) {
             listNode1 = listNode1.next;
-            listNode2 = listNode1.next;
+            if (listNode2 == null || listNode2.next == null) {
+                return false;
+            }
+            listNode2 = listNode2.next.next;
         }
-        if (listNode2 == null)
-            return false;
         return true;
     }
 

@@ -6,8 +6,8 @@ public class StrstrSolution {
     {
         Long start = System.currentTimeMillis();
         StrstrSolution strstrSolution = new StrstrSolution();
-        String haystack = "";
-        String needle = "";
+        String haystack = "aaaaa"; //"hello";
+        String needle = "bba";   // "ll"
         int index = strstrSolution.strStr(haystack, needle);
         System.out.println(index);
         System.out.println(System.currentTimeMillis() - start);
