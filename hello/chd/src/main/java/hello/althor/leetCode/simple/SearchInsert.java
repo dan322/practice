@@ -4,6 +4,14 @@ public class SearchInsert {
 
     public static void main(String[] args)
     {
+       /* char[] chars = new char[]{'v', 'e', 'r', 's', 'i', 'o', 'n', '1'};
+        int hashKey = 0;
+        for (int i = 0; i < chars.length; i++) {
+            hashKey = (hashKey << 5) - hashKey + chars[i];
+            hashKey = 31 * hashKey + chars[i];
+        }
+        System.out.println(hashKey);
+*/
         Long start = System.currentTimeMillis();
         SearchInsert searchInsert = new SearchInsert();
         int target = 2;

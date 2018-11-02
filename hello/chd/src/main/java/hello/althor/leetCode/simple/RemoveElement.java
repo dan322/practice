@@ -5,23 +5,68 @@ public class RemoveElement {
     {
         RemoveElement remove = new RemoveElement();
         Long start = System.currentTimeMillis();
-        int[] nums = new int[]{3, 2, 2, 3}; // 3 3 2 4 5 3
+        int[] nums = new int[]{3, 2, 3, 2, 4, 5, 3, 8}; //
         int val = 3;
-        int length = remove.solution(nums, val);
+        int length = remove.solution1(nums, val);
         System.out.println(length);
         System.out.println(System.currentTimeMillis() - start);
+//        System.out.println("");
+        for (int i = 0; i < nums.length; ++i) {
+            System.out.println(nums[i]);
+        }
     }
 
+    /**
+     *  不稳定
+     * @param nums
+     * @param val
+     * @return
+     */
     public int solution(int[] nums, int val)
     {
-        int length = nums.length;
-        int index = 0;
-        for (int i = 0; i < length; i++) {
+        int last = nums.length - 1;
+        for (int i = last; i >= 0; i--) {
             if (nums[i] == val) {
-                index = i;
+                nums[i] = nums[last];
+                nums[last--] = val;
             }
-            // todo swap equal with the value didn't equal
         }
-        return 0;
+        return last + 1;
+    }
+
+    /**
+     * 稳定
+     * @param nums
+     * @param val
+     * @return
+     */
+    public int solution1(int[] nums, int val)
+    {
+        int first = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == val) {
+                first++;
+                continue;
+            }
+            nums[i-first] = nums[i];
+        }
+        return nums.length - first;
+    }
+
+    /**
+     *  best
+     * @param nums
+     * @param val
+     * @return
+     */
+    public int solution2(int[] nums, int val) {
+        int count = 0;
+        for(int i=0;i<nums.length;i++){
+            if(nums[i] != val){
+                nums[count] = nums[i];
+                count ++;
+            }
+        }
+        return count;
     }
 }
