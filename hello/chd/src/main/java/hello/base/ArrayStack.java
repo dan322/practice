@@ -13,10 +13,10 @@ public class ArrayStack {
 
     public void add(int data)
     {
-        if (++tailInt == length) {
-            //todo 扩容 (capacity * 2)
-            int[] newNums = new int[length<<1];
+        if (tailInt + 1 == nums.length) {
             int oldLength = length;
+            //todo 扩容 (capacity * 2)
+            int[] newNums = new int[length << 1];
             while (oldLength > 0) {
                 oldLength--;
                 newNums[oldLength] = nums[oldLength];
@@ -24,8 +24,9 @@ public class ArrayStack {
             }
             nums = newNums;
         }
-        tailInt++;
-        nums[length++] = data;
+        tailInt = length;
+        nums[tailInt] = data;
+        length++;
     }
 
     public int getData()
@@ -35,5 +36,6 @@ public class ArrayStack {
         length--;
         return nums[tailInt--];
     }
+
 
 }
