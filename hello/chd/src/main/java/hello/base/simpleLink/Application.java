@@ -103,4 +103,79 @@ public class Application {
         }
         return false;
     }
+
+    // TODO
+
+    /**
+     * https://leetcode-cn.com/problems/linked-list-cycle-ii/
+     * @param nums
+     * @return
+     */
+    public ListNode detectCycle(int[] nums)
+    {
+        int length = nums.length;
+        if (length < 2) return null;
+        ListNode head = new ListNode(nums[0]);
+        ListNode node1 = new ListNode(nums[1]);
+        head.next = node1;
+        ListNode node2 = new ListNode(nums[2]);
+        node1.next = node2;
+        ListNode node3 = new ListNode(nums[3]);
+        node2.next = node3;
+        node3.next = node1;
+        /*ListNode pre = head;
+        for (int i = 1; i < length; i++) {
+            ListNode newListNode = new ListNode(nums[i]);
+            pre.next = newListNode;
+            pre = pre.next;
+        }*/
+
+        return null;
+//        return solution(head);
+    }
+
+    /**
+     * 给定一个链表，返回链表开始入环的第一个节点。 如果链表无环，则返回 null。
+     * 不允许修改给定的链表。
+     */
+    public ListNode solution(ListNode head)
+    {
+
+        return null;
+    }
+
+    // TODO
+    public int cycleLength(int[] nums)
+    {
+        int length = nums.length;
+        if (length < 2) return 0;
+        ListNode head = new ListNode(nums[0]);
+        ListNode node1 = new ListNode(nums[1]);
+        head.next = node1;
+        ListNode node2 = new ListNode(nums[2]);
+        node1.next = node2;
+        ListNode node3 = new ListNode(nums[3]);
+        node2.next = node3;
+        node3.next = node1;
+        /*ListNode pre = head;
+        for (int i = 1; i < length; i++) {
+            ListNode newListNode = new ListNode(nums[i]);
+            pre.next = newListNode;
+            pre = pre.next;
+        }*/
+
+        return 0;
+    }
+
+    /**
+     *  return cycle length in list
+     * @param head
+     * @return
+     */
+    public int cycleLengthSolution(ListNode head)
+    {
+
+
+        return 0;
+    }
 }
