@@ -9,7 +9,7 @@ public class CountAndSay {
     {
         CountAndSay countAndSay = new CountAndSay();
         Long start = System.currentTimeMillis();
-        int num = 3;
+        int num = 4;
         int result = countAndSay.solution(num);
         System.out.println(System.currentTimeMillis() - start);
         System.out.println(result);
@@ -35,15 +35,15 @@ public class CountAndSay {
     {
         if (num == 1) return num;
         if (num == 2) return 11;
-        int count = 1, remainder = 0, value, prevRemainder = 0, result = 11;
+        int count, remainder = 0, value, prevRemainder = 0, result = 11;
         for (int i = 3; i < num + 1; i++) {
             // todo read result
             value = result;
             result = 0;
+            count = 1;
             while (value > 0) {
                 remainder = value % 10;
-                System.out.println(remainder);
-                System.out.println(prevRemainder);
+                value = value / 10;
                 if (remainder == prevRemainder) {
                     prevRemainder = remainder;
                     count++;
@@ -53,12 +53,9 @@ public class CountAndSay {
                     result = result * 10 + count * 10 + prevRemainder;
                     count = 1;
                 }
-                value = value / 10;
-                System.out.println(value);
                 prevRemainder = remainder;
             }
-            if (value == 1)
-                result = result * 10 + count * 10 + remainder;
+            result = result * 10 + count * 10 + remainder;
         }
         return result;
     }
