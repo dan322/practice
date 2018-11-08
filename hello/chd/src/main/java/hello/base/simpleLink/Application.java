@@ -82,7 +82,7 @@ public class Application {
             listNode2 = listNode2.next.next;
         }
         return true;
-    }
+}
 
     /**
      *   *****************************    哈希表  (检查一个结点此前是否被访问过来判断链表是否为环形链表)
@@ -140,8 +140,37 @@ public class Application {
      */
     public ListNode solution(ListNode head)
     {
-
-        return null;
+        if (head == null || head.next == null)
+            return null;
+        ListNode listNode1 = head;
+        ListNode listNode2 = listNode1.next.next;
+        int n = 0;
+        while (listNode1 != listNode2) {
+            if (listNode2 == null || listNode2.next == null) {
+                return null;
+            }
+            listNode1 = listNode1.next;
+            listNode2 = listNode2.next.next;
+        }
+        // todo get cycle length
+        listNode1 = listNode2;
+        while (listNode1 != listNode2) {
+            listNode1 = listNode1.next;
+            n++;
+        }
+        // todo has cycle p2 go ahead cycle length (n)
+        listNode2 = head;
+        listNode1 = head;
+        while (n > 0) {
+            listNode2 = head.next;
+            n--;
+        }
+        // p1 go from first node, then if two pointer meet, the pointer is the start of cycle
+        while (listNode1 != listNode2) {
+            listNode1 = listNode1.next;
+            listNode2 = listNode2.next;
+        }
+        return listNode1;
     }
 
     // TODO
@@ -175,7 +204,24 @@ public class Application {
     public int cycleLengthSolution(ListNode head)
     {
 
-
-        return 0;
+        if (head == null || head.next == null)
+            return 0;
+        ListNode listNode1 = head;
+        ListNode listNode2 = listNode1.next.next;
+        int n = 0;
+        while (listNode1 != listNode2) {
+            if (listNode2 == null || listNode2.next == null) {
+                return 0;
+            }
+            listNode1 = listNode1.next;
+            listNode2 = listNode2.next.next;
+        }
+        // todo get cycle length
+        listNode1 = listNode2;
+        while (listNode1 != listNode2) {
+            listNode1 = listNode1.next;
+            n++;
+        }
+        return n;
     }
 }
