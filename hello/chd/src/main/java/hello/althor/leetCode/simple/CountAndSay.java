@@ -9,8 +9,9 @@ public class CountAndSay {
     {
         CountAndSay countAndSay = new CountAndSay();
         Long start = System.currentTimeMillis();
-        int num = 3;
+        int num = 2;
         int result = countAndSay.solution(num);
+//        int result = countAndSay.test(111221);
         System.out.println(System.currentTimeMillis() - start);
         System.out.println(result);
     }
@@ -31,37 +32,54 @@ public class CountAndSay {
      * @param num
      * @return
      */
-    public int solution(int num)
+    public int solution(int number)
     {
-        if (num == 1) return num;
-        if (num == 2) return 11;
-        int count = 1, remainder = 0, value, prevRemainder = 0, result = 11;
-        for (int i = 3; i < num + 1; i++) {
-            // todo read result
+        if (number == 1) return number;
+        int count, remainder, value, prevRemainder, result = 11, num;
+        for (int i = 2; i < number + 1; i++) {
             value = result;
+            num = 1;
+            count = 0;
             result = 0;
+            prevRemainder = 1;
             while (value > 0) {
                 remainder = value % 10;
-                System.out.println(remainder);
-                System.out.println(prevRemainder);
+                value = value/10;
                 if (remainder == prevRemainder) {
-                    prevRemainder = remainder;
                     count++;
                     continue;
                 }
-                if (prevRemainder != 0) {
-                    result = result * 10 + count * 10 + prevRemainder;
-                    count = 1;
-                }
-                value = value / 10;
-                System.out.println(value);
+                result += (count * 10 + prevRemainder) * num;
                 prevRemainder = remainder;
+                count = 1;
+                num *= 100;
             }
-            if (value == 1)
-                result = result * 10 + count * 10 + remainder;
+            result += (count * 10 + prevRemainder) * num;
         }
         return result;
     }
+
+    public int test(int value)
+    {
+        int result = 0;
+        int prevRemainder = 1;
+        int remainder, count = 0, num = 1;
+        while (value > 0) {
+            remainder = value % 10;
+            value = value/10;
+            if (remainder == prevRemainder) {
+                count++;
+                continue;
+            }
+            result += (count * 10 + prevRemainder) * num;
+            prevRemainder = remainder;
+            count = 1;
+            num *= 100;
+        }
+        result += (count * 10 + prevRemainder) * num;
+        return result;
+    }
+
 
 
 }
