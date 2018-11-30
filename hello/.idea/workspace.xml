@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="7c81a0dc-f34c-4586-bb9f-cd1bea325a1d" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/chd/src/main/java/hello/althor/leetCode/simple/CountAndSay.java" beforeDir="false" afterPath="$PROJECT_DIR$/chd/src/main/java/hello/althor/leetCode/simple/CountAndSay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chd/src/main/java/hello/base/simpleLink/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/chd/src/main/java/hello/base/simpleLink/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/niwacore" beforeDir="false" afterPath="$PROJECT_DIR$/niwacore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/niwacore/.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/niwacore/.editorconfig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/niwacore/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/niwacore/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/niwacore/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/niwacore/LICENSE" afterDir="false" />
@@ -164,7 +166,6 @@
       <change beforePath="$PROJECT_DIR$/niwacore/src/test/java/org/javacore/time/LocalDateTest2.java" beforeDir="false" afterPath="$PROJECT_DIR$/niwacore/src/test/java/org/javacore/time/LocalDateTest2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/niwacore/src/test/java/org/javacore/time/PlayDuration.java" beforeDir="false" afterPath="$PROJECT_DIR$/niwacore/src/test/java/org/javacore/time/PlayDuration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/niwacore/src/test/java/org/javacore/time/TimeUtilTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/niwacore/src/test/java/org/javacore/time/TimeUtilTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../read.php" beforeDir="false" afterPath="$PROJECT_DIR$/../read.php" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/niwacore/target/" />
@@ -190,8 +191,8 @@
       <file leaf-file-name="CountAndSay.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/chd/src/main/java/hello/althor/leetCode/simple/CountAndSay.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-150">
-              <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+            <state relative-caret-position="387">
+              <caret line="76" column="23" selection-start-line="76" selection-start-column="23" selection-end-line="76" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -393,8 +394,8 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -549,7 +550,6 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.4996209" weight="0.3298193" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
@@ -573,6 +573,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3298193" />
+      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.4996209" weight="0.3298193" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -915,8 +916,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/chd/src/main/java/hello/althor/leetCode/simple/CountAndSay.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-150">
-          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+        <state relative-caret-position="387">
+          <caret line="76" column="23" selection-start-line="76" selection-start-column="23" selection-end-line="76" selection-end-column="23" />
         </state>
       </provider>
     </entry>
