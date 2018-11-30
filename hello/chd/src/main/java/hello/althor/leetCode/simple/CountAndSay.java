@@ -11,7 +11,6 @@ public class CountAndSay {
         Long start = System.currentTimeMillis();
         int num = 2;
         int result = countAndSay.solution(num);
-//        int result = countAndSay.test(111221);
         System.out.println(System.currentTimeMillis() - start);
         System.out.println(result);
     }
@@ -29,7 +28,7 @@ public class CountAndSay {
      * 21 被读作 "one 2",  "one 1" （"一个二" ,  "一个一") , 即 1211。
      *
      * 给定一个正整数 n（1 ≤ n ≤ 30），输出报数序列的第 n 项。
-     * @param num
+     * @param number
      * @return
      */
     public int solution(int number)
