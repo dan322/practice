@@ -34,7 +34,7 @@ public class CountAndSay {
     public int solution(int number)
     {
         if (number == 1) return number;
-        int count, remainder, value, prevRemainder, result = 11, num;
+        int count, remainder, value, prevRemainder, result = 1, num;
         for (int i = 2; i < number + 1; i++) {
             value = result;
             num = 1;
