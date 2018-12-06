@@ -1,6 +1,7 @@
 package hello.althor.leetCode.simple;
 
 import javax.xml.bind.SchemaOutputResolver;
+import java.util.Stack;
 
 public class CountAndSay {
 
@@ -10,7 +11,8 @@ public class CountAndSay {
         CountAndSay countAndSay = new CountAndSay();
         Long start = System.currentTimeMillis();
         int num = 2;
-        int result = countAndSay.solution(num);
+//        int result = countAndSay.solution(num);
+        String result = countAndSay.solution1(num);
         System.out.println(System.currentTimeMillis() - start);
         System.out.println(result);
     }
@@ -58,6 +60,21 @@ public class CountAndSay {
         return result;
     }
 
+    public String solution1(int number)
+    {
+        String result = "1123";
+        System.out.println(result.toCharArray());
+        if (number == 1) return result;
+        char[] value = result.toCharArray();
+        char num;
+        int count = 0;
+        for (int i = 2; i < number + 1; i++) {
+            result = "";
+
+        }
+        return result;
+    }
+
     public int test(int value)
     {
         int result = 0;
@@ -77,6 +94,16 @@ public class CountAndSay {
         }
         result += (count * 10 + prevRemainder) * num;
         return result;
+    }
+
+    public int test1(int value)
+    {
+        value = 1;
+        Stack nums = new Stack();
+        while (value > 0) {
+
+        }
+        return 0;
     }
 
 
