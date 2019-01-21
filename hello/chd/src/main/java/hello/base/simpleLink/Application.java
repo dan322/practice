@@ -93,7 +93,7 @@ public class Application {
      * @return
      */
     public boolean hasCycle1(ListNode head) {
-        Set<ListNode> nodesSeen = new HashSet<>();
+        Set<ListNode> nodesSeen = new HashSet<ListNode>();
         while (head != null) {
             if (nodesSeen.contains(head)) {
                 return true;
