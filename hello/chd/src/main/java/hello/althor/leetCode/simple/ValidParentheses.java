@@ -43,7 +43,7 @@ public class ValidParentheses {
     public boolean isValidate(String s)
     {
         if (s != "" && (s.length() & 1) == 1) return false;
-        Stack<Integer> stack = new Stack<>();
+        Stack<Integer> stack = new Stack<Integer>();
         char[] chars = s.toCharArray();
         boolean isValid = true;
         int nowInt;

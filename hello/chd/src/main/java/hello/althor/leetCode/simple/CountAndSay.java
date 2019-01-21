@@ -10,7 +10,7 @@ public class CountAndSay {
     {
         CountAndSay countAndSay = new CountAndSay();
         Long start = System.currentTimeMillis();
-        int num = 2;
+        int num = 4;
 //        int result = countAndSay.solution(num);
         String result = countAndSay.solution1(num);
         System.out.println(System.currentTimeMillis() - start);
@@ -62,15 +62,25 @@ public class CountAndSay {
 
     public String solution1(int number)
     {
-        String result = "1123";
-        System.out.println(result.toCharArray());
+        String result = "1";
         if (number == 1) return result;
-        char[] value = result.toCharArray();
-        char num;
-        int count = 0;
-        for (int i = 2; i < number + 1; i++) {
-            result = "";
-
+        while (number > 1) {
+            int count = 1;
+            char[] value = result.toCharArray();
+            StringBuilder str = new StringBuilder();
+            char preChar = value[0];
+            for (int i = 1; i < value.length; i++) {
+                if (preChar == value[i]) {
+                    count++;
+                } else {
+                    str.append(count).append(preChar);
+                    count = 1;
+                    preChar = value[i];
+                }
+            }
+            str.append(count).append(preChar);
+            result = str.toString();
+            number--;
         }
         return result;
     }
