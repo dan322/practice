@@ -45,4 +45,55 @@ public class StrstrSolution {
         }
         return -1;
     }
+
+    public int solution(String haystack, String needle)
+    {
+        if (needle == "") return 0;
+        boolean isSame;
+        for (int i = 0; i <= haystack.length() - needle.length(); i++) {
+            isSame = true;
+            for (int j = 0; j < needle.length(); j++) {
+                if (needle.charAt(j) != haystack.charAt(i + j)) {
+                    isSame = false;
+                    break;
+                }
+            }
+            if (isSame) return i;
+        }
+        return -1;
+    }
+
+    public int solution1(String haystack, String needle)
+    {
+        //todo ann KMP
+
+        return -1;
+    }
+
+
+    public int getGoodPrexfix(String needle)
+    {
+        // todo ann get good prefix according to rule
+        return 1;
+    }
+
+    public int solution2(String haystack, String needle)
+    {
+        //todo ann BM
+
+        return -1;
+    }
+
+    public int getGoodSuffix(String needle)
+    {
+        // todo ann return good suffix
+        return -1;
+    }
+
+    public int getBadCharacter(String needle)
+    {
+        // todo ann return bad character
+
+        return -1;
+    }
 }
