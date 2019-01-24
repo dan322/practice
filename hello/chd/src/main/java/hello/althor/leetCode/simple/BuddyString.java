@@ -37,17 +37,69 @@ public class BuddyString {
     {
         BuddyString buddyString = new BuddyString();
         Long start = System.currentTimeMillis();
-        String a = "ab";  //aaaaaaabc
-        String b = "ba";  //aaaaaaacb
-        boolean result = buddyString.solution(a, b);
+        String a = "baacaeaa";  //aaaaaaabc
+        String b = "baaceaaa";  //aaaaaaacb
+        boolean result = buddyString.solution1(a, b);
         System.out.println(System.currentTimeMillis() - start);
         System.out.println(result);
     }
 
+    /**
+     *  if A not equal B, then can must change once, other letter must be same
+     *  if A equal B, then must have a letter consistently occur twice times or more
+     * @param A
+     * @param B
+     * @return
+     */
     public boolean solution(String A, String B)
     {
-        //todo ann
+        if (A.length() != B.length() || A.length() < 2)
+            return false;
+        char prevCharA = 0;
+        boolean consistentSame = false, isChangeOnce = false;
+        for (int i = 0; i < A.length(); i++) {
+            if (A.charAt(i) == B.charAt(i)) {
+                if (A.charAt(i) == prevCharA) {
+                    consistentSame = true;
+                } else {
+                    prevCharA = A.charAt(i);
+                }
+            } else if (!isChangeOnce && A.charAt(i) == B.charAt(i + 1) && A.charAt(i + 1) == B.charAt(i)) {
+                isChangeOnce = true;
+                i++;
+            } else {
+                return false;
+            }
+        }
+        return consistentSame || isChangeOnce;
+    }
 
+    public boolean solution1(String A, String B)
+    {
+        if (A.length() != B.length() || A.length() < 2)
+            return false;
+        int i;
+        char prevChar;
+        if (A == B) {
+            prevChar = A.charAt(0);
+            for (i = 1; i < A.length(); i++) {
+                if (A.charAt(i) == prevChar) {
+                    return true;
+                } else {
+                    prevChar = A.charAt(i);
+                }
+            }
+        } else {
+            char[] chars = A.toCharArray();
+            for (i = 0; i < chars.length; i++) {
+                if (chars[i] != B.charAt(i)) {
+                    prevChar = chars[i];
+                    chars[i] = chars[i + 1];
+                    chars[i + 1] = prevChar;
+                    return B.equals(String.valueOf(chars));
+                }
+            }
+        }
         return false;
     }
 }
